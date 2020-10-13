@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:queuenbuapp/bookingpage/booking_component.dart';
 import 'package:queuenbuapp/homepage/Widget/home_widget.dart';
 import 'package:queuenbuapp/navigation/test.dart';
 
@@ -12,7 +13,7 @@ class _BottomNavBarState extends State<BotttomNavBar> {
   var _page = 0;
   final pages = [
     HomePage(),
-    TestNav(),
+    EventQueue(),
     TestNav(),
   ];
   @override
