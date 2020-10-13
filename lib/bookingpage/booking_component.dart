@@ -6,10 +6,12 @@ class EventQueue extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Center(
-            child: Card(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-      ),
-    )));
+      child: Container(
+          height: 200,
+          width: 500,
+          child: Card(
+            child: (Text("data")),
+          )),
+    ));
   }
 }
