@@ -14,13 +14,13 @@ class HomePage extends StatelessWidget {
           ),
           Container(
             margin: EdgeInsets.only(
-              right: 140,
               top: 10,
             ),
             height: 50,
             child: Text(
-              "กิจกรรมจิตอาสา",
-              style: TextStyle(fontSize: 30),
+              "วันนี้รับบริการแบบไหนดีครับ?",
+              style: TextStyle(fontSize: 18),
+              textAlign: TextAlign.center,
             ),
           ),
           Expanded(
