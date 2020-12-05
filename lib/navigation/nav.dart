@@ -2,7 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:queuenbuapp/bookingpage/Component/booking_component.dart';
 import 'package:queuenbuapp/homepage/Widget/home_widget.dart';
-import 'package:queuenbuapp/navigation/test.dart';
+import 'package:queuenbuapp/profliepage/Widget/profile_widget.dart';
 
 class BotttomNavBar extends StatefulWidget {
   @override
@@ -11,11 +11,7 @@ class BotttomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BotttomNavBar> {
   var _page = 0;
-  final pages = [
-    HomePage(),
-    EventQueue(),
-    TestNav(),
-  ];
+  final pages = [HomePage(), EventQueue(), Profile()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(

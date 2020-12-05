@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
             margin: EdgeInsets.only(
               top: 10,
             ),
-            height: 50,
+            height: 25,
             child: Text(
               "วันนี้รับบริการแบบไหนดีครับ?",
               style: TextStyle(fontSize: 18),

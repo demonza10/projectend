@@ -12,11 +12,6 @@ class EventQueue extends StatelessWidget {
         createDocWidget('', ''),
         createDocWidget('', ''),
         createDocWidget('', ''),
-        createDocWidget('', ''),
-        createDocWidget('', ''),
-        createDocWidget('', ''),
-        createDocWidget('', ''),
-        createDocWidget('', ''),
       ]),
     );
   }
