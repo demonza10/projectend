@@ -7,8 +7,8 @@ class ImageProflie extends StatelessWidget {
     return Scaffold(
       body: Container(
           // color: Colors.blue,
-          height: 200,
-          width: 100,
+          height: 220,
+          width: 120,
           child: CircleAvatar(
             radius: 50.0,
             backgroundImage: NetworkImage(

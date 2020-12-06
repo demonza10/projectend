@@ -10,6 +10,7 @@ class Profile extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
+        backgroundColor: Colors.indigoAccent[700],
       ),
       body: Column(
         children: <Widget>[
@@ -25,21 +26,30 @@ class Profile extends StatelessWidget {
                     //Profile
                     Container(
                       margin: EdgeInsets.only(left: 10),
-                      height: 200,
-                      width: 100,
+                      height: 220,
+                      width: 120,
                       child: ImageProflie(),
                     ),
                     Column(
                       children: <Widget>[
                         Container(
+                          padding: EdgeInsets.only(top: 30, left: 10),
                           // color: Colors.green,
-                          child: Text("นาย สรัล ปัทมะทิน"),
+                          child: Text("นาย สรัล ปัทมะทิน",
+                              style: TextStyle(fontSize: 20)),
                         ),
                         //Button
                         Container(
-                          height: 100,
-                          width: 200,
-                          child: ButtonProflie(),
+                          padding: EdgeInsets.only(right: 30),
+                          child: RaisedButton(
+                            color: Colors.indigoAccent[700],
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15.0)),
+                            onPressed: () {},
+                            child: const Text('Edit Profile',
+                                style: TextStyle(
+                                    fontSize: 16, color: Colors.white)),
+                          ),
                         ),
                       ],
                     )
@@ -49,7 +59,7 @@ class Profile extends StatelessWidget {
             ),
           ),
           Container(
-            child: Text("คิวของฉัน"),
+            child: Text("คิวของฉัน", style: TextStyle(fontSize: 18)),
           ),
           Container(
             child: Expanded(
