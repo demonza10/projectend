@@ -24,11 +24,12 @@ class HomePage extends StatelessWidget {
             ),
           ),
           Expanded(
-              child: SingleChildScrollView(
-            child: Container(
-              child: Queue(),
+            child: SingleChildScrollView(
+              child: Container(
+                child: Queue(),
+              ),
             ),
-          ))
+          ),
         ],
       ),
     );
