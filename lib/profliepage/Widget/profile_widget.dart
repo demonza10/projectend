@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:queuenbuapp/bookingpage/Component/booking_component.dart';
-import 'package:queuenbuapp/profliepage/Component/button_profile.dart';
 import 'package:queuenbuapp/profliepage/Component/img_profile.dart';
 import 'package:queuenbuapp/profliepage/Component/my_queue.dart';
+import 'package:queuenbuapp/profliepage/Widget/edit_profile.dart';
 
 class Profile extends StatelessWidget {
   @override
@@ -45,7 +44,13 @@ class Profile extends StatelessWidget {
                             color: Colors.indigoAccent[700],
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15.0)),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => EditProfile()),
+                              );
+                            },
                             child: const Text('Edit Profile',
                                 style: TextStyle(
                                     fontSize: 16, color: Colors.white)),

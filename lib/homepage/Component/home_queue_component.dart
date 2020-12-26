@@ -15,6 +15,7 @@ class Queue extends StatelessWidget {
               width: 150,
               margin: EdgeInsets.only(left: 40),
               child: Card(
+                color: Colors.indigoAccent[700],
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -27,7 +28,8 @@ class Queue extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 5),
-                      child: Text("แผนกกิจกรรม\nและพัฒนานักศึกษา"),
+                      child: Text("แผนกกิจกรรม\nและพัฒนานักศึกษา",
+                          style: TextStyle(color: Colors.white)),
                     ),
                   ],
                 ),
@@ -37,6 +39,7 @@ class Queue extends StatelessWidget {
               height: 150,
               width: 150,
               child: Card(
+                color: Colors.indigoAccent[700],
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -49,7 +52,8 @@ class Queue extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 5),
-                      child: Text("แผนกวินัยและกีฬา"),
+                      child: Text("แผนกวินัยและกีฬา",
+                          style: TextStyle(color: Colors.white)),
                     ),
                   ],
                 ),
@@ -65,6 +69,7 @@ class Queue extends StatelessWidget {
               width: 150,
               margin: EdgeInsets.only(left: 40),
               child: Card(
+                color: Colors.indigoAccent[700],
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -77,7 +82,8 @@ class Queue extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 5),
-                      child: Text("แผนกทุนการศึกษา\nและสวัสดิการ"),
+                      child: Text("แผนกทุนการศึกษา\nและสวัสดิการ",
+                          style: TextStyle(color: Colors.white)),
                     ),
                   ],
                 ),
@@ -87,6 +93,7 @@ class Queue extends StatelessWidget {
               height: 150,
               width: 150,
               child: Card(
+                color: Colors.indigoAccent[700],
                 child: Column(
                   children: <Widget>[
                     Container(
@@ -97,7 +104,8 @@ class Queue extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.only(top: 5),
-                      child: Text("โปรไฟล์"),
+                      child: Text("โปรไฟล์",
+                          style: TextStyle(color: Colors.white)),
                     ),
                   ],
                 ),
