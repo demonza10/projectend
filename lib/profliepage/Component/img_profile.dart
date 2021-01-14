@@ -7,7 +7,7 @@ class ImageProflie extends StatelessWidget {
     return Scaffold(
       body: Container(
           // color: Colors.blue,
-          color: Colors.indigoAccent[700],
+          // color: Colors.indigoAccent[700],
           height: 220,
           width: 120,
           child: CircleAvatar(
