@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:queuenbuapp/homepage/Widget/sec_widget/activity_dep_widget.dart';
-import 'package:queuenbuapp/homepage/Widget/sec_widget/discipline_and_sports_dep_widget.dart';
-
 import 'package:queuenbuapp/profliepage/Component/img_profile.dart';
 import 'package:queuenbuapp/profliepage/Widget/profile_widget.dart';
 // import 'package:queuenbuapp/navigation/nav.dart';
 
-class Queue extends StatelessWidget {
+class DisciplineDEP extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -24,8 +21,7 @@ class Queue extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => ActivityDEPwidget()),
+                    MaterialPageRoute(builder: (context) => Profile()),
                   );
                 },
                 child: Card(
@@ -60,8 +56,7 @@ class Queue extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => DisciplineDEPwidget()),
+                    MaterialPageRoute(builder: (context) => Profile()),
                   );
                 },
                 child: Card(
