@@ -15,6 +15,7 @@ class ActivityDEPwidget extends StatelessWidget {
           Container(
             child: Text("test1"),
           ),
+          Container(),
         ],
       ),
     );
