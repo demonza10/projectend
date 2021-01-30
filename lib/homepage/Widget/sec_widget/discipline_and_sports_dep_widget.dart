@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:queuenbuapp/homepage/Component/home_queue_component.dart';
 import 'package:queuenbuapp/homepage/Component/home_slider_component.dart';
+import 'package:queuenbuapp/homepage/Component/sec_component/discipline_and_sports_dep_component/discipline_list_component.dart';
 
 class DisciplineDEPwidget extends StatelessWidget {
   @override
@@ -12,8 +13,12 @@ class DisciplineDEPwidget extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          Container(
-            child: Text("test2"),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Container(
+                child: DisciplineList(),
+              ),
+            ),
           ),
         ],
       ),

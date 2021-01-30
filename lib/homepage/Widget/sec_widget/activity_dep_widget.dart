@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:queuenbuapp/homepage/Component/home_queue_component.dart';
-import 'package:queuenbuapp/homepage/Component/home_slider_component.dart';
+import 'package:queuenbuapp/homepage/Component/sec_component/activity_dep_component/activity_list_activity_component.dart';
 
 class ActivityDEPwidget extends StatelessWidget {
   @override
@@ -12,8 +11,12 @@ class ActivityDEPwidget extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          Container(
-            child: Text("test1"),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Container(
+                child: ActivityList(),
+              ),
+            ),
           ),
           Container(),
         ],
