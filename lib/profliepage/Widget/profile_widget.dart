@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:queuenbuapp/profliepage/Component/img_profile.dart';
 import 'package:queuenbuapp/profliepage/Component/my_queue.dart';
+import 'package:queuenbuapp/profliepage/Widget/add_event_form.dart';
 import 'package:queuenbuapp/profliepage/Widget/edit_profile.dart';
 
 class Profile extends StatelessWidget {
@@ -37,6 +38,12 @@ class Profile extends StatelessWidget {
                           child: Text("นาย สรัล ปัทมะทิน",
                               style: TextStyle(fontSize: 20)),
                         ),
+                        Container(
+                          // padding: EdgeInsets.only(top: 30, left: 10),
+                          // color: Colors.green,
+                          child:
+                              Text("601110951", style: TextStyle(fontSize: 15)),
+                        ),
                         //Button
                         Container(
                           padding: EdgeInsets.only(right: 30),
@@ -63,14 +70,27 @@ class Profile extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            child: Text("คิวของฉัน", style: TextStyle(fontSize: 18)),
+          Row(
+            children: <Widget>[
+              Container(
+                child: Text("คิวของฉัน", style: TextStyle(fontSize: 18)),
+              ),
+              Container(
+                child: IconButton(
+                  icon: Icon(Icons.add),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return EventForm();
+                    }));
+                  },
+                ),
+              )
+            ],
           ),
           Container(
             child: Expanded(
-              child: SingleChildScrollView(
-                child: MyQueue(),
-              ),
+              child: Queue(),
             ),
           ),
         ],

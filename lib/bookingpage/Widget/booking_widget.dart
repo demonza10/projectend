@@ -12,10 +12,8 @@ class QueuePage extends StatelessWidget {
         body: Column(
           children: <Widget>[
             Expanded(
-              child: SingleChildScrollView(
-                child: Container(
-                  child: EventQueue(),
-                ),
+              child: Container(
+                child: EventQueue(),
               ),
             ),
           ],

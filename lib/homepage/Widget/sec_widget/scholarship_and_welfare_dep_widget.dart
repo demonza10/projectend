@@ -14,10 +14,8 @@ class ScholarshipDEPwidget extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Expanded(
-            child: SingleChildScrollView(
-              child: Container(
-                child: ScholarshipList(),
-              ),
+            child: Container(
+              child: ScholarshipList(),
             ),
           ),
         ],

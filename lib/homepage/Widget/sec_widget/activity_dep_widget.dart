@@ -12,10 +12,8 @@ class ActivityDEPwidget extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Expanded(
-            child: SingleChildScrollView(
-              child: Container(
-                child: ActivityList(),
-              ),
+            child: Container(
+              child: ActivityList(),
             ),
           ),
           Container(),

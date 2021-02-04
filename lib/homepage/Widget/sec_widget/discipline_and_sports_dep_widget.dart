@@ -14,10 +14,8 @@ class DisciplineDEPwidget extends StatelessWidget {
       body: Column(
         children: <Widget>[
           Expanded(
-            child: SingleChildScrollView(
-              child: Container(
-                child: DisciplineList(),
-              ),
+            child: Container(
+              child: DisciplineList(),
             ),
           ),
         ],
