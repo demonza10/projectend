@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:queuenbuapp/homepage/Component/sec_component/activity_dep_component/activity_list_activity_component.dart';
+import 'package:queuenbuapp/screens/homepage/Component/sec_component/activity_dep_component/activity_list_activity_component.dart';
 
 class ActivityDEPwidget extends StatelessWidget {
   @override

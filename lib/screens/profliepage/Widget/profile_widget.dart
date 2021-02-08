@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:queuenbuapp/profliepage/Component/img_profile.dart';
-import 'package:queuenbuapp/profliepage/Component/my_queue.dart';
-import 'package:queuenbuapp/profliepage/Widget/add_event_form.dart';
-import 'package:queuenbuapp/profliepage/Widget/edit_profile.dart';
+import 'package:queuenbuapp/screens/profliepage/Component/img_profile.dart';
+import 'package:queuenbuapp/screens/profliepage/Component/my_queue.dart';
+import 'package:queuenbuapp/screens/profliepage/Widget/add_event_form.dart';
+import 'package:queuenbuapp/screens/profliepage/Widget/edit_profile.dart';
 
 class Profile extends StatelessWidget {
   @override

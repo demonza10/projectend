@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:queuenbuapp/profliepage/Component/img_profile_edit.dart';
-import 'package:queuenbuapp/profliepage/Component/profile_component.dart';
+import 'package:queuenbuapp/screens/profliepage/Component/img_profile_edit.dart';
+import 'package:queuenbuapp/screens/profliepage/Component/profile_component.dart';
 
 class EditProfile extends StatelessWidget {
   @override

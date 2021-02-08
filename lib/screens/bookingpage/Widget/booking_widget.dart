@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:queuenbuapp/bookingpage/Component/booking_component.dart';
+import 'package:queuenbuapp/screens/bookingpage/Component/booking_component.dart';
 
 class QueuePage extends StatelessWidget {
   @override

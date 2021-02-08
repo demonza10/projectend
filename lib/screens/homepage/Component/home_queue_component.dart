@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:queuenbuapp/homepage/Widget/sec_widget/activity_dep_widget.dart';
-import 'package:queuenbuapp/homepage/Widget/sec_widget/discipline_and_sports_dep_widget.dart';
-import 'package:queuenbuapp/homepage/Widget/sec_widget/scholarship_and_welfare_dep_widget.dart';
+import 'package:queuenbuapp/screens/homepage/Widget/sec_widget/activity_dep_widget.dart';
+import 'package:queuenbuapp/screens/homepage/Widget/sec_widget/discipline_and_sports_dep_widget.dart';
+import 'package:queuenbuapp/screens/homepage/Widget/sec_widget/scholarship_and_welfare_dep_widget.dart';
+import 'package:queuenbuapp/screens/profliepage/Component/img_profile.dart';
+import 'package:queuenbuapp/screens/profliepage/Widget/profile_widget.dart';
 
-import 'package:queuenbuapp/profliepage/Component/img_profile.dart';
-import 'package:queuenbuapp/profliepage/Widget/profile_widget.dart';
 // import 'package:queuenbuapp/navigation/nav.dart';
 
 class Queue extends StatelessWidget {

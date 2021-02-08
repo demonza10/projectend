@@ -1,9 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:queuenbuapp/bookingpage/Component/booking_component.dart';
-import 'package:queuenbuapp/bookingpage/Widget/booking_widget.dart';
-import 'package:queuenbuapp/homepage/Widget/home_widget.dart';
-import 'package:queuenbuapp/profliepage/Widget/profile_widget.dart';
+import 'package:queuenbuapp/screens/bookingpage/Widget/booking_widget.dart';
+import 'package:queuenbuapp/screens/homepage/Widget/home_widget.dart';
+import 'package:queuenbuapp/screens/profliepage/Widget/profile_widget.dart';
 
 class BotttomNavBar extends StatefulWidget {
   @override

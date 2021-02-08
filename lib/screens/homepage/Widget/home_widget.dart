@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:queuenbuapp/homepage/Component/home_queue_component.dart';
-import 'package:queuenbuapp/homepage/Component/home_slider_component.dart';
+import 'package:queuenbuapp/screens/homepage/Component/home_queue_component.dart';
+import 'package:queuenbuapp/screens/homepage/Component/home_slider_component.dart';
 
 class HomePage extends StatelessWidget {
   @override
