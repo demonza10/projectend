@@ -35,9 +35,31 @@ class TransactionDB {
     var keyID = store.add(db, {
       "title": statement.title,
       "amount": statement.amount,
-      "date": statement.date.toIso8601String()
+      "date": statement.date.toIso8601String(),
+      "user_name": statement.user_name,
     });
+
     db.close();
     return keyID;
+  }
+
+  // ดึงข้อมูล
+  Future<List<Transactions>> loadAllData() async {
+    var db = await this.openDatabase();
+    var store = intMapStoreFactory.store("expense");
+    var snapshot = await store.find(db,
+        finder: Finder(sortOrders: [SortOrder(Field.key, false)]));
+    List transactionList = List<Transactions>();
+    for (var record in snapshot) {
+      transactionList.add(
+        Transactions(
+            title: record["title"],
+            amount: record["amount"],
+            user_name: record["user_name"],
+            date: DateTime.parse(record["date"])),
+      );
+    }
+    // print(snapshot);
+    return transactionList;
   }
 }

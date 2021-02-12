@@ -7,23 +7,24 @@ import 'package:queuenbuapp/providers/transaction_provider.dart';
 class Queue extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Consumer(
-      builder: (context, TransactionProvider provider, Widget child) {
-        var count = provider.transactions.length; //นับจำนวนข้อมูล
-        if (count <= 0) {
-          return Center(
-            child: Text(
-              "ไม่ข้อมูล",
-              style: TextStyle(fontSize: 20),
-            ),
-          );
-        } else {
-          return ListView.builder(
-            itemCount: count,
-            itemBuilder: (context, int index) {
-              //ดึงรายการจาก provider
-              Transactions data = provider.transactions[index];
-              return Card(
+    return Scaffold(
+      body: Consumer(
+        builder: (context, TransactionProvider provider, Widget child) {
+          var count = provider.transactions.length; //นับจำนวนข้อมูล
+          if (count <= 0) {
+            return Center(
+              child: Text(
+                "ไม่ข้อมูล",
+                style: TextStyle(fontSize: 20),
+              ),
+            );
+          } else {
+            return ListView.builder(
+              itemCount: count,
+              itemBuilder: (context, int index) {
+                //ดึงรายการจาก provider
+                Transactions data = provider.transactions[index];
+                return Card(
                   elevation: 5,
                   margin:
                       const EdgeInsets.symmetric(vertical: 8, horizontal: 20),
@@ -41,11 +42,13 @@ class Queue extends StatelessWidget {
                       },
                     ),
                     // Icon(Icons.edit),
-                  ));
-            },
-          );
-        }
-      },
-    ));
+                  ),
+                );
+              },
+            );
+          }
+        },
+      ),
+    );
   }
 }

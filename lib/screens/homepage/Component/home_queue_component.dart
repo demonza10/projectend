@@ -30,7 +30,7 @@ class Queue extends StatelessWidget {
                   );
                 },
                 child: Card(
-                  // color: Colors.indigoAccent[700],
+                  color: Colors.indigoAccent[700],
                   child: Column(
                     children: <Widget>[
                       Container(
@@ -45,7 +45,7 @@ class Queue extends StatelessWidget {
                         margin: EdgeInsets.only(top: 5),
                         child: Text(
                           "แผนกกิจกรรม\nและพัฒนานักศึกษา",
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Colors.white),
                         ),
                       ),
                     ],
@@ -66,7 +66,7 @@ class Queue extends StatelessWidget {
                   );
                 },
                 child: Card(
-                  // color: Colors.indigoAccent[700],
+                  color: Colors.indigoAccent[700],
                   child: Column(
                     children: <Widget>[
                       Container(
@@ -81,7 +81,7 @@ class Queue extends StatelessWidget {
                         margin: EdgeInsets.only(top: 5),
                         child: Text(
                           "แผนกวินัยและกีฬา",
-                          style: TextStyle(color: Colors.black),
+                          style: TextStyle(color: Colors.white),
                         ),
                       ),
                     ],
@@ -109,7 +109,7 @@ class Queue extends StatelessWidget {
                   );
                 },
                 child: Card(
-                  // color: Colors.indigoAccent[700],
+                  color: Colors.indigoAccent[700],
                   child: Column(
                     children: <Widget>[
                       Container(
@@ -123,7 +123,7 @@ class Queue extends StatelessWidget {
                       Container(
                         margin: EdgeInsets.only(top: 5),
                         child: Text("แผนกทุนการศึกษา\nและสวัสดิการ",
-                            style: TextStyle(color: Colors.black)),
+                            style: TextStyle(color: Colors.white)),
                       ),
                     ],
                   ),
@@ -141,24 +141,24 @@ class Queue extends StatelessWidget {
                       MaterialPageRoute(builder: (context) => Profile()),
                     );
                   },
-                  child: Card(
-                    // color: Colors.indigoAccent[700],
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          height: 100,
-                          width: 100,
-                          margin: EdgeInsets.only(top: 10),
-                          child: ImageProflie(),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 5),
-                          child: Text("โปรไฟล์",
-                              style: TextStyle(color: Colors.black)),
-                        ),
-                      ],
-                    ),
-                  ),
+                  // child: Card(
+                  //   // color: Colors.indigoAccent[700],
+                  //   child: Column(
+                  //     children: <Widget>[
+                  //       Container(
+                  //         height: 100,
+                  //         width: 100,
+                  //         margin: EdgeInsets.only(top: 10),
+                  //         child: ImageProflie(),
+                  //       ),
+                  //       Container(
+                  //         margin: EdgeInsets.only(top: 5),
+                  //         child: Text("โปรไฟล์",
+                  //             style: TextStyle(color: Colors.black)),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 )),
           ],
         ),
