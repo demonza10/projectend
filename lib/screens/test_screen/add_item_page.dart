@@ -1,10 +1,12 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:queuenbuapp/navigation/show_notification.dart';
 import 'package:queuenbuapp/service/add_item_service.dart';
 import 'package:queuenbuapp/service/logger_service.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class AddItemPage extends StatefulWidget {
   AddItemPage({Key key}) : super(key: key);
@@ -19,6 +21,7 @@ class _AddItemPageState extends State<AddItemPage> {
 
   //File
   File file;
+  String urlImage;
 
   @override
   Widget build(BuildContext context) {
@@ -71,8 +74,12 @@ class _AddItemPageState extends State<AddItemPage> {
                       } else {
                         addItem(
                             context,
-                            {"name": evname.text, "description": evdes.text},
+                            {
+                              "name": evname.text,
+                              "description": evdes.text,
+                            },
                             evname.text);
+                        uploadImageToStorage();
                         evname.text = "";
                         evdes.text = "";
                       }
@@ -94,7 +101,7 @@ class _AddItemPageState extends State<AddItemPage> {
       height: MediaQuery.of(context).size.height * 0.3,
       child: file == null
           ? Image.asset(
-              'assets/add_img.png',
+              './assets/img_1.jpg',
             )
           : Image.file(file),
     );
@@ -113,5 +120,18 @@ class _AddItemPageState extends State<AddItemPage> {
       });
       print(file);
     } catch (e) {}
+  }
+
+  Future<void> uploadImageToStorage() async {
+    Random random = Random();
+    int i = random.nextInt(10000);
+
+    FirebaseStorage firtbaseStorage = FirebaseStorage.instance;
+    StorageReference storageReference =
+        firtbaseStorage.ref().child('Product/product$i.jpg');
+    StorageUploadTask storageUploadTask = storageReference.putFile(file);
+
+    urlImage = await (await storageUploadTask.onComplete).ref.getDownloadURL();
+    print('url = $urlImage');
   }
 }
