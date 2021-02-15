@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "862222969285",
+    "project_id": "projectend-9bebd",
+    "storage_bucket": "projectend-9bebd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:862222969285:android:585f34082ca982cdc403ac",
+        "android_client_info": {
+          "package_name": "com.example.queuenbuapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "862222969285-q8967lhknbh6evoul2lq4575m06tnnnr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDT2MbAGn3ObfHiFDEzV0_nhfdcdAs8y-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "862222969285-q8967lhknbh6evoul2lq4575m06tnnnr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

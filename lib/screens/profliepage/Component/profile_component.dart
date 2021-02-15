@@ -1,26 +1,64 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:firebase_storage/firebase_storage.dart';
+import 'package:queuenbuapp/screens/profliepage/Widget/profile_widget.dart';
 
-class ProfileDetail extends StatelessWidget {
+class ProfileDetail extends StatefulWidget {
+  @override
+  _ProfileDetailState createState() => _ProfileDetailState();
+}
+
+class _ProfileDetailState extends State<ProfileDetail> {
+  final formKey = GlobalKey<FormState>();
+  String nameString, studentnumberString, emailString, passwordString;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Form(
+          key: formKey,
           child: Column(
             children: [
               TextFormField(
                 decoration: new InputDecoration(labelText: "ชื่อ-นามสกุล"),
+                validator: (String value) {
+                  if (value.isEmpty) {
+                    return 'Please Fill Your Name in the Blank';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (String value) {
+                  nameString = value.trim();
+                },
               ),
               TextFormField(
                 decoration: new InputDecoration(labelText: "รหัสนักศึกษา"),
+                validator: (String value) {
+                  if (value.isEmpty) {
+                    return 'Please Fill Your StudentNumber in the Blank';
+                  } else {
+                    return null;
+                  }
+                },
+                onSaved: (String value) {
+                  studentnumberString = value.trim();
+                },
                 keyboardType: TextInputType.number,
               ),
               FlatButton(
                 child: Text("ยืนยัน"),
                 color: Colors.blue,
                 onPressed: () {
+                  print('compile');
+                  if (formKey.currentState.validate()) {
+                    formKey.currentState.save();
+                    print('$nameString,$studentnumberString');
+                    // setupUserName();
+                  }
                   Navigator.pop(context);
                 },
               )
@@ -30,7 +68,131 @@ class ProfileDetail extends StatelessWidget {
       ),
     );
   }
+
+  Future<void> userNameThread() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    await firebaseAuth
+        .createUserWithEmailAndPassword(
+            email: emailString, password: passwordString)
+        .then((response) {
+      setupUserName();
+    }).catchError((response) {
+      String title = response.code;
+      String message = response.message;
+      // myAlert(title, message);
+    });
+  }
+
+  Future<void> setupUserName() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    await firebaseAuth.currentUser().then((response) {
+      UserUpdateInfo userUpdateInfo = UserUpdateInfo();
+      userUpdateInfo.displayName = nameString;
+      response.updateProfile(userUpdateInfo);
+
+      MaterialPageRoute materialPageRoute =
+          MaterialPageRoute(builder: (BuildContext context) => Profile());
+      Navigator.of(context).pushAndRemoveUntil(
+          materialPageRoute, (Route<dynamic> route) => false);
+    });
+  }
+
+  Future<void> additem(
+      BuildContext context, Map<String, dynamic> data, String documentName) {
+    return Firestore.instance
+        .collection("userinfo")
+        .document(documentName)
+        .setData(data);
+  }
 }
+
+// class ProfileDetail extends StatelessWidget {
+//   final formKey = GlobalKey<FormState>();
+//   String nameString, studentnumberString, emailString, passwordString;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Padding(
+//         padding: const EdgeInsets.all(10.0),
+//         child: Form(
+//           key: formKey,
+//           child: Column(
+//             children: [
+//               TextFormField(
+//                 decoration: new InputDecoration(labelText: "ชื่อ-นามสกุล"),
+//                 validator: (String value) {
+//                   if (value.isEmpty) {
+//                     return 'Please Fill Your Name in the Blank';
+//                   } else {
+//                     return null;
+//                   }
+//                 },
+//                 onSaved: (String value) {
+//                   nameString = value.trim();
+//                 },
+//               ),
+//               TextFormField(
+//                 decoration: new InputDecoration(labelText: "รหัสนักศึกษา"),
+//                 validator: (String value) {
+//                   if (value.isEmpty) {
+//                     return 'Please Fill Your StudentNumber in the Blank';
+//                   } else {
+//                     return null;
+//                   }
+//                 },
+//                 onSaved: (String value) {
+//                   studentnumberString = value.trim();
+//                 },
+//                 keyboardType: TextInputType.number,
+//               ),
+//               FlatButton(
+//                 child: Text("ยืนยัน"),
+//                 color: Colors.blue,
+//                 onPressed: () {
+//                   print('compile');
+//                   if (formKey.currentState.validate()) {
+//                     formKey.currentState.save();
+//                     print('$nameString,$studentnumberString');
+//                     // setupUserName();
+//                   }
+//                   Navigator.pop(context);
+//                 },
+//               )
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// Future<void> userNameThread() async {
+//     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+//     await firebaseAuth
+//         .createUserWithEmailAndPassword(
+//             email: emailString, password: passwordString)
+//         .then((response) {
+//       setupUserName();
+//     }).catchError((response) {
+//       String title = response.code;
+//       String message = response.message;
+//       // myAlert(title, message);
+//     });
+//   }
+
+// Future<void> setupUserName() async {
+//     FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+//     await firebaseAuth.currentUser().then((response) {
+//       UserUpdateInfo userUpdateInfo = UserUpdateInfo();
+//       userUpdateInfo.username = nameString;
+//       response.updateProfile(userUpdateInfo);
+
+//       MaterialPageRoute materialPageRoute =
+//           MaterialPageRoute(builder: (BuildContext context) => Profile());
+//       Navigator.of(context).pushAndRemoveUntil(
+//           materialPageRoute, (Route<dynamic> route) => false);
+//     });
+//   }
 
 // class Proflie extends StatelessWidget {
 //   // This widget is the root of your application.

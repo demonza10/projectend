@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:queuenbuapp/providers/transaction_provider.dart';
@@ -5,10 +6,35 @@ import 'package:queuenbuapp/screens/profliepage/Component/img_profile.dart';
 import 'package:queuenbuapp/screens/profliepage/Component/my_queue.dart';
 import 'package:queuenbuapp/screens/profliepage/Widget/add_event_form.dart';
 import 'package:queuenbuapp/screens/profliepage/Widget/edit_profile.dart';
-import 'package:sembast/sembast.dart';
+// import 'package:sembast/sembast.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
+  Profile({Key key}) : super(key: key);
+
   @override
+  _ProfileState createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  // Explicit
+  String login = '...';
+
+  //Method
+  @override
+  void iniState() {
+    super.initState();
+    findDisplayName();
+  }
+
+  Future<void> findDisplayName() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    FirebaseUser firebaseUser = await firebaseAuth.currentUser();
+    setState(() {
+      login = firebaseUser.displayName;
+    });
+    print('login = $login');
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -36,7 +62,7 @@ class Profile extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.only(top: 30, left: 10),
                         // color: Colors.green,
-                        child: Text("username", style: TextStyle(fontSize: 20)),
+                        child: Text(login, style: TextStyle(fontSize: 20)),
                       ),
                       Container(
                         // padding: EdgeInsets.only(top: 30, left: 10),

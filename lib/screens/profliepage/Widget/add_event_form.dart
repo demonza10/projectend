@@ -32,7 +32,7 @@ class EventForm extends StatelessWidget {
                 validator: (String str) {
                   //ชื่อรายการเป็นค่าว่าง
                   if (str.isEmpty) {
-                    return "กรุณาป้อนชื่อกิจกกรม";
+                    return "กรุณาป้อนชื่อกิจกรรม";
                   }
                   return null;
                 },
@@ -62,6 +62,8 @@ class EventForm extends StatelessWidget {
                         listen: false);
                     provider.addTransaction(statement);
                     Navigator.pop(context);
+
+                    print('$title');
                   }
                 },
               )
