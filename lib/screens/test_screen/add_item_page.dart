@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:queuenbuapp/navigation/show_notification.dart';
 import 'package:queuenbuapp/service/add_item_service.dart';
@@ -21,7 +22,7 @@ class _AddItemPageState extends State<AddItemPage> {
 
   //File
   File file;
-  String urlImage;
+  String evurlimg;
 
   @override
   Widget build(BuildContext context) {
@@ -43,15 +44,23 @@ class _AddItemPageState extends State<AddItemPage> {
                       showImage(),
                       IconButton(
                         icon: Icon(
-                          Icons.add_photo_alternate,
+                          Icons.add,
                           size: 50.0,
-                          color: Colors.blue,
+                          color: Colors.green,
                         ),
                         onPressed: () {
                           chooseImage(ImageSource.gallery);
                         },
                       ),
                     ],
+                  ),
+                  RaisedButton(
+                    onPressed: () {
+                      uploadImageToStorage();
+                      showMessageBox(context, "แจ้งเตือน", "ยืนยันรูปภาพแล้ว",
+                          actions: [dismissButton(context)]);
+                    },
+                    child: Text('ยืนยันรูปภาพ', style: TextStyle(fontSize: 20)),
                   ),
                   TextField(
                     decoration: InputDecoration(labelText: "Event Name"),
@@ -66,25 +75,29 @@ class _AddItemPageState extends State<AddItemPage> {
                   RaisedButton(
                     child: Text("confirm"),
                     onPressed: () {
-                      if (evname.text == "" || evdes.text == "") {
+                      if (evname.text == "" ||
+                          evdes.text == "" ||
+                          evurlimg == "") {
                         showMessageBox(context, "Error",
                             "Please enter name and description before adding it to firebase",
                             actions: [dismissButton(context)]);
                         logger.e("evname or evdes can't be null");
                       } else {
-                        addItem(
+                        return addItem(
                             context,
                             {
                               "name": evname.text,
                               "description": evdes.text,
+                              "url": "$evurlimg",
                             },
                             evname.text);
-                        uploadImageToStorage();
                         evname.text = "";
                         evdes.text = "";
+                        evurlimg = "";
                       }
+                      Navigator.pop(context);
                     },
-                  )
+                  ),
                 ],
               ),
             ),
@@ -101,7 +114,7 @@ class _AddItemPageState extends State<AddItemPage> {
       height: MediaQuery.of(context).size.height * 0.3,
       child: file == null
           ? Image.asset(
-              './assets/img_1.jpg',
+              './assets/add_img.png',
             )
           : Image.file(file),
     );
@@ -131,7 +144,7 @@ class _AddItemPageState extends State<AddItemPage> {
         firtbaseStorage.ref().child('Product/product$i.jpg');
     StorageUploadTask storageUploadTask = storageReference.putFile(file);
 
-    urlImage = await (await storageUploadTask.onComplete).ref.getDownloadURL();
-    print('url = $urlImage');
+    evurlimg = await (await storageUploadTask.onComplete).ref.getDownloadURL();
+    print('url = $evurlimg');
   }
 }

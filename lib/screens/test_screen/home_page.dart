@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:queuenbuapp/screens/loginpage/login_page.dart';
 import 'package:queuenbuapp/screens/test_screen/add_item_page.dart';
 import 'package:queuenbuapp/screens/test_screen/item_page.dart';
 import 'package:queuenbuapp/screens/test_screen/sec_screens/activity_screen.dart';
@@ -14,6 +16,47 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+  }
+
+  void myAlert() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Are You Sure?'),
+            content: Text('Do you want Sign out?'),
+            actions: <Widget>[cancleButton(), okButton()],
+          );
+        });
+  }
+
+  Widget okButton() {
+    return FlatButton(
+      child: Text('OK'),
+      onPressed: () {
+        Navigator.of(context).pop();
+        processSingOut();
+      },
+    );
+  }
+
+  Widget cancleButton() {
+    return FlatButton(
+      child: Text('Cacel'),
+      onPressed: () {
+        Navigator.of(context).pop();
+      },
+    );
+  }
+
+  Future<void> processSingOut() async {
+    FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+    await firebaseAuth.signOut().then((response) {
+      MaterialPageRoute materialPageRoute =
+          MaterialPageRoute(builder: (BuildContext context) => Login());
+      Navigator.of(context).pushAndRemoveUntil(
+          materialPageRoute, (Route<dynamic> route) => false);
+    });
   }
 
   @override
@@ -81,9 +124,9 @@ class _HomePageState extends State<HomePage> {
             children: <Widget>[
               DrawerHeader(
                 child: CircleAvatar(
-                  radius: 100.0,
-                  backgroundImage: NetworkImage(
-                    'https://i.pinimg.com/originals/85/b4/06/85b4066060120a0ee602815af9da2d0d.jpg',
+                  radius: 30.0,
+                  backgroundImage: AssetImage(
+                    './assets/test_user.png',
                   ),
                   backgroundColor: Colors.transparent,
                 ),
@@ -149,6 +192,22 @@ class _HomePageState extends State<HomePage> {
                 onTap: () {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => AddItemPage()));
+                },
+              ),
+
+              // LogOut
+              ListTile(
+                title: Row(
+                  children: <Widget>[
+                    Icon(Icons.exit_to_app),
+                    SizedBox(
+                      width: 5.0,
+                    ),
+                    Text('LogOut'),
+                  ],
+                ),
+                onLongPress: () {
+                  myAlert();
                 },
               ),
             ],

@@ -4,7 +4,13 @@ import 'package:flutter/material.dart';
 class ItemPage extends StatefulWidget {
   final String evname;
   final String evdescription;
-  ItemPage({Key key, @required this.evname, @required this.evdescription})
+  final String evurlimg;
+
+  ItemPage(
+      {Key key,
+      @required this.evname,
+      @required this.evdescription,
+      @required this.evurlimg})
       : super(key: key);
 
   @override
@@ -13,6 +19,7 @@ class ItemPage extends StatefulWidget {
 
 class _ItemPageState extends State<ItemPage> {
   String evdescription = "Please wait...";
+  String evurlimg = "Please wait...";
 
   @override
   void initState() {
@@ -24,6 +31,7 @@ class _ItemPageState extends State<ItemPage> {
         .then((value) {
       setState(() {
         evdescription = value.data["description"];
+        evurlimg = value.data["url"];
       });
     });
   }
@@ -39,6 +47,7 @@ class _ItemPageState extends State<ItemPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Image.network('$evurlimg'),
             Text(
               widget.evname,
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),

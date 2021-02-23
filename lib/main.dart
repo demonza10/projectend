@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:queuenbuapp/screens/loginpage/login_page.dart';
 
 import 'screens/test_screen/home_page.dart';
 // import 'package:queuenbuapp/screens/homepage/Widget/home_widget.dart';
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'NEU Easy.',
-      home: HomePage(),
+      home: Login(),
     );
   }
 }
